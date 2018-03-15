@@ -20,7 +20,7 @@ def get_account_list():
     name_list = []
     account_list = []
     client = boto3.client('organizations')
-    response = client.list_accounts()
+    response = client.list_accounts(MaxResults=10)
 
     while 'NextToken' in response:
         for account in response['Accounts']:
